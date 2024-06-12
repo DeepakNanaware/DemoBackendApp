@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
@@ -9,12 +7,12 @@ namespace backend.Controllers
     public class AdditionController : ControllerBase
     {
 
-        private readonly IConfiguration? _configuration;
+        //private readonly IConfiguration _configuration;
 
-        public AdditionController(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        //public AdditionController(IConfiguration configuration)
+        //{
+        //    _configuration = configuration;
+        //}
 
 
         [HttpGet("add")]
@@ -24,15 +22,15 @@ namespace backend.Controllers
             return Ok(sum);
         }
 
-        [HttpGet("environment")]
-        public IActionResult GetEnvironment()
-        {
-            var env = _configuration.GetSection("Environment").Value;
-            Console.WriteLine("env=>",env);
-            return Ok(env);
-           /* string environment = _configuration?["Environment"] ?? "DefaultEnvironment"; // Handle null configuration
+        //[HttpGet("environment")]
+        //public IActionResult GetEnvironment()
+        //{
+        //    var env = _configuration.GetSection("Environment").Value;
+        //    Console.WriteLine("env=>",env);
+        //    return Ok(env);
+        //   /* string environment = _configuration?["Environment"] ?? "DefaultEnvironment"; // Handle null configuration
            
-            return Ok(environment);*/
-        }
+        //    return Ok(environment);*/
+        //}
     }
 }
